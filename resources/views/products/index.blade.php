@@ -26,8 +26,8 @@
                             <strong>{{              $product->name}}</strong>
                             {{ $product->short}}
                         </td>
-                        <td>ver</td>
-                        <td>borrar</td>
+                        <td><a href="{{route('products.show',$product->id)}}">ver</a></td>
+                        <td><a href="{{route('products.edit',$product->id)}}">editar</a></td>
                         <td>editar</td>
                     </tr>
                 @endforeach
