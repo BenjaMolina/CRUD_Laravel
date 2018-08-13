@@ -13,6 +13,6 @@
     </div>
     
     <div class="col-sm-4">
-        <h3>Mensaje</h3>
+        @include('products.fragments.aside')
     </div>
 @endsection

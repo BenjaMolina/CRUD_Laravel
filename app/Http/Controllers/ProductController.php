@@ -28,4 +28,20 @@ class ProductController extends Controller
 
         return back()->with('info', 'El producto fue eliminado');
     }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('products.edit',compact('product'));
+    }
+
+    public function create()
+    {
+        return view('products.create');
+    }
+
+    public function update($id)
+    {
+        
+    }
 }
