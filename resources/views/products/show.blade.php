@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+    <div class="alert alert-success" role="alert">ajshdkjahsjkhdjh</div>
     
     <div class="col-sm-4">
         <h3>Mensaje</h3>

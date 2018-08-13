@@ -6,6 +6,10 @@
         <h3>Mensaje</h3>
     </div>
     <div class="col-sm-8">
+        @if (session()->has('info'))
+            <div class="alert alert-success" role="alert">{{ session('info') }}</div>
+        @endif
+       
         <h3>Listado de productos
             <a class="btn btn-primary" href="{{ route('products.create')}}"> Producto Nuevo</a>
         </h3>
@@ -26,9 +30,18 @@
                             <strong>{{              $product->name}}</strong>
                             {{ $product->short}}
                         </td>
-                        <td><a href="{{route('products.show',$product->id)}}">ver</a></td>
-                        <td><a href="{{route('products.edit',$product->id)}}">editar</a></td>
-                        <td>editar</td>
+                        <td><a class="btn btn-link" href="{{route('products.show',$product->id)}}">ver</a></td>
+                        <td><a class="btn btn-link" href="{{route('products.edit',$product->id)}}">editar</a></td>
+                        <td>
+                            <form action="{{route('products.destroy',$product->id)}}"  method="POST">
+                                
+                                {!! csrf_field() !!}                               
+                                {{ method_field('DELETE') }}
+                                
+                        
+                                <button type="submit" class="btn btn-link">Borrar</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
