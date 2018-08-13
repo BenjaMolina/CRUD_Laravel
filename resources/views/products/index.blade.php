@@ -1,18 +1,16 @@
 @extends('layout')
 
 @section('content')
-    
-    <div class="col-sm-4">
-        <h3>Mensaje</h3>
-    </div>
+
     <div class="col-sm-8">
-        @if (session()->has('info'))
-            <div class="alert alert-success" role="alert">{{ session('info') }}</div>
-        @endif
-       
+        
+        @include('products.fragments.info');
+
         <h3>Listado de productos
             <a class="btn btn-primary" href="{{ route('products.create')}}"> Producto Nuevo</a>
         </h3>
+
+        
 
         <table class="table table-hover table-striped">
             <thead>
@@ -47,5 +45,10 @@
             </tbody>
         </table>
         {{ $products->render()}}
+    </div>
+
+    <div class="col-sm-4">
+        <h3>Mensaje</h3>
+        @include('products.fragments.aside')
     </div>
 @endsection
