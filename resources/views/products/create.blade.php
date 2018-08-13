@@ -7,6 +7,8 @@
             Nuevo Producto
             <a class="btn btn-default" href="{{route('products.index')}}">Listado</a>
         </h2>
+        
+        @include('products.fragments.error')
 
         {!! Form::open( [ 'route' => ['products.store']])  !!}
 

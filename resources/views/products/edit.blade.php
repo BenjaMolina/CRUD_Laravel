@@ -8,6 +8,8 @@
             <a class="btn btn-default" href="{{route('products.index')}}">Listado</a>
         </h2>
         {{-- {{dd($product->name)}} --}}
+        @include('products.fragments.error')
+        
         {!! Form::model(
                 $product,
                 [ 'route' => ['products.update',$product->id],
