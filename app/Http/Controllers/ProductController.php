@@ -43,11 +43,15 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        return 'Producto actualizado '. $id;
+        Product::findOrFail($id)->update($request->all());
+
+        return redirect()->route('products.index')->with('info','Producto Actualizado');
     }
 
     public function store(ProductRequest $request)
     {
-        return 'Producto guradado';
+        Product::create($request->all());
+
+        return redirect()->route('products.index')->with('info','Producto agregado');
     }
 }
