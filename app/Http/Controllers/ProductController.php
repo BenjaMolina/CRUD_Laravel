@@ -5,7 +5,8 @@ use App\Product;
 use App\Http\Requests\ProductRequest;
 
 use Illuminate\Http\Request;
-
+//tip : you can create a controler resource directly from the console, use this command : 
+//php artisan make:controller --resource, with this, you'll avoid to write the methods to make a crud, and will be genrated with comments
 class ProductController extends Controller
 {
     public function index()
@@ -21,9 +22,10 @@ class ProductController extends Controller
         return view('products.show',compact('product'));
     }
 
-    public function destroy($id)
+    public function destroy(Product $product)// <- check this new way to access the resource
     {
-        
+        // NOTE : you can easily use 'model binding'
+        //$product->delete();// you can access to the resource directly, without the findOrFail static method :), greetings jaja
         $product = Product::findOrFail($id);
         $product->delete();
 
